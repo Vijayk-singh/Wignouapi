@@ -12,7 +12,7 @@ router.post('/', async function(req, res, next) {
 let qustion = await qustions.create({
     title: title,
     description: description,
-    user:'63d289f2f16dade66cb1711c'
+    user:'63fa4cd9a47a017870f8e1df'
     
   });
   res.send('created');
