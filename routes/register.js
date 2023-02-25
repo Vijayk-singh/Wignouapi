@@ -5,7 +5,7 @@ var users = require('../db/models/users')
 /* GET users listing. */
 router.post('/', async function(req, res, next) {
     var {email, username, password} = req.body;
-    let user = await users.findOne({ username});
+    // let user = await users.findOne({ username});
 //   if (user) {
 //     return res.status(400).json({ error: "Sorry a user with this email already exists" })
 //   }
