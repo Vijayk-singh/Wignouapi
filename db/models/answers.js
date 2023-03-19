@@ -5,26 +5,22 @@ const UserSchema = new Schema({
 
     user:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'users',
-        
-
+        ref: 'users'
     },
-    title:{
-        type: String,
-        required: true
+    qustion:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'qustions'
     },
+    
     description:{
         type: String,
        
     },
-    tag:{
-        type: String,
-        default: "General"
-    },
+    
     date:{
         type: Date,
         default: Date.now
     },
   });
-  const Qustions = mongoose.model('qustions', UserSchema);
-  module.exports = Qustions;
+  const Answers = mongoose.model('answers', UserSchema);
+  module.exports = Answers;

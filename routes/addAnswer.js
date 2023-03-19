@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var qustions = require("../db/models/qustions");
+var answers = require("../db/models/answers");
 const fetchuser = require("./Miidleware/fetchuser");
 var jwt = require('jsonwebtoken');
 const JWT_SECRET = "abcd";
@@ -19,11 +19,12 @@ router.post("/", fetchuser, async function (req, res, next) {
       
     
 
-  let qustion = await qustions.create({
+  let answer = await answers.create({
   
-    title: title,
+  
     description: description,
     user: decode.id,
+    qustion:"640480b3f249fe9126a90b93"
    
   });
 //   const note = new qustions({
@@ -31,7 +32,7 @@ router.post("/", fetchuser, async function (req, res, next) {
 // })
 // const qustion = await note.save()
 
-  res.send(qustion);
+  res.send(answer);
   // var userid =req.user;
 
 });

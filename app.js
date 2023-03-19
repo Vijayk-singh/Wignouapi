@@ -10,7 +10,11 @@ var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var addQustionRouter = require('./routes/addQustion');
+var addAnswerRouter = require('./routes/addAnswer');
 var getQustionRouter = require('./routes/getQustions');
+var getAnswerRouter = require('./routes/getAnswer');
+var allQustionRouter = require('./routes/allQustion');
+
 var getpostRouter = require('./routes/users');
 var connectToMongo = require('./db/db');
 var app = express();
@@ -22,7 +26,7 @@ var corsOptions = {
   optionsSuccessStatus: 200,
   credentials:true,     
 };
-app.use(cors());
+// app.use(cors());
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000/");
   next();
@@ -30,19 +34,22 @@ app.use((req, res, next) => {
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(cors(corsOptions));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors(corsOptions));
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/signup', registerRouter);
 app.use('/addQustion', addQustionRouter);
+app.use('/addAnswer', addAnswerRouter);
 app.use('/getQustion', getQustionRouter);
-
+app.use('/getAnswer', getQustionRouter);
+app.use('/allQustion', allQustionRouter);
 
 
 // catch 404 and forward to error handler
